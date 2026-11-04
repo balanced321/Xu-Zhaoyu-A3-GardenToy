@@ -10,6 +10,8 @@ public class Meadow
         Draw.Rectangle(0, groundY, 400, 84);
 
         Draw.FillColor = new Color(103, 158, 91);
+
+        // Each tuft is 20 pixels wide, so spacing centres by 20 makes the edges meet.
         for (int tuft = 0; tuft < 20; tuft++)
         {
             Draw.Circle(10 + tuft * 20, groundY, 10);

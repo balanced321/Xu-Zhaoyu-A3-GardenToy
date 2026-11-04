@@ -10,6 +10,7 @@ public class Game
 
     public void Setup()
     {
+        // Setup runs once. The window matches the 400 x 400 plan.
         Window.SetTitle("Rain Garden | Arrows: move | Click: water | W: colour");
         Window.SetSize(400, 400);
         Draw.LineSize = 0;
@@ -17,10 +18,11 @@ public class Game
 
     public void Update()
     {
+        // Read movement and colour before checking where this click lands.
         cloud.Move();
         cloud.ChooseRain();
 
-        // Each flower checks whether the cloud is above it.
+        // A single press asks each flower to check its distance from the cloud.
         if (Input.IsMouseButtonPressed(MouseButton.Left))
         {
             left.Water(cloud);

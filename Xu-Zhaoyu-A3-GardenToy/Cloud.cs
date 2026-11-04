@@ -7,6 +7,7 @@ public class Cloud
 
     public void Move()
     {
+        // Scale the speed in pixels per second by the time since the last frame.
         float distance = 160 * Time.DeltaTime;
 
         if (Input.IsKeyboardKeyDown(KeyboardKey.Left))
@@ -19,7 +20,7 @@ public class Cloud
             x += distance;
         }
 
-        // Leave room for the outer circles at both window edges.
+        // Leave room for the edges of the cloud.
         if (x < 40)
         {
             x = 40;
@@ -33,7 +34,7 @@ public class Cloud
 
     public void ChooseRain()
     {
-        // Hold W for magenta rain. Release it for cyan.
+        // Hold W to load magenta rain. Release W to load cyan.
         if (Input.IsKeyboardKeyDown(KeyboardKey.W))
         {
             rain = Color.Magenta;
@@ -46,6 +47,7 @@ public class Cloud
 
     public void DrawCloud()
     {
+        // Use the same x position for every shape so the cloud moves as one piece.
         Draw.FillColor = Color.White;
         Draw.Circle(x - 20, 85, 19);
         Draw.Circle(x, 74, 25);
