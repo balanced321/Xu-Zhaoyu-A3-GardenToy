@@ -31,6 +31,19 @@ public class Cloud
         }
     }
 
+    public void ChooseRain()
+    {
+        // Hold W for magenta rain. Release it for cyan.
+        if (Input.IsKeyboardKeyDown(KeyboardKey.W))
+        {
+            rain = Color.Magenta;
+        }
+        else
+        {
+            rain = Color.Cyan;
+        }
+    }
+
     public void DrawCloud()
     {
         Draw.FillColor = Color.White;
@@ -39,7 +52,7 @@ public class Cloud
         Draw.Circle(x + 20, 85, 19);
         Draw.Rectangle(x - 20, 85, 40, 18);
 
-        // The drops show where the rain will land.
+        // The drops show the rain colour and where it will land.
         Draw.FillColor = rain;
         for (int drop = 0; drop < 5; drop++)
         {

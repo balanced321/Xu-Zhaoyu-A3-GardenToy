@@ -10,6 +10,15 @@ public class Flower
         x = positionX;
     }
 
+    public void Water(Cloud cloud)
+    {
+        // Only the flower underneath the cloud changes colour.
+        if (cloud.x >= x - 28 && cloud.x <= x + 28)
+        {
+            petals = cloud.rain;
+        }
+    }
+
     public void DrawFlower()
     {
         // Stem and leaf

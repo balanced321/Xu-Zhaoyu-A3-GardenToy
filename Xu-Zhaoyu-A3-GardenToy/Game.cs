@@ -10,7 +10,7 @@ public class Game
 
     public void Setup()
     {
-        Window.SetTitle("Rain Garden | Arrows: move");
+        Window.SetTitle("Rain Garden | Arrows: move | Click: water | W: colour");
         Window.SetSize(400, 400);
         Draw.LineSize = 0;
     }
@@ -18,6 +18,15 @@ public class Game
     public void Update()
     {
         cloud.Move();
+        cloud.ChooseRain();
+
+        // Each flower checks whether the cloud is above it.
+        if (Input.IsMouseButtonPressed(MouseButton.Left))
+        {
+            left.Water(cloud);
+            middle.Water(cloud);
+            right.Water(cloud);
+        }
 
         Window.ClearBackground(new Color(156, 198, 211));
         meadow.DrawMeadow();
