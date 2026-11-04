@@ -10,13 +10,15 @@ public class Game
 
     public void Setup()
     {
-        Window.SetTitle("Rain Garden");
+        Window.SetTitle("Rain Garden | Arrows: move");
         Window.SetSize(400, 400);
         Draw.LineSize = 0;
     }
 
     public void Update()
     {
+        cloud.Move();
+
         Window.ClearBackground(new Color(156, 198, 211));
         meadow.DrawMeadow();
         left.DrawFlower();

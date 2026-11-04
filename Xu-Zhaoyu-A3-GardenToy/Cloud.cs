@@ -5,6 +5,32 @@ public class Cloud
     public float x = 200;
     public Color rain = Color.Cyan;
 
+    public void Move()
+    {
+        float distance = 160 * Time.DeltaTime;
+
+        if (Input.IsKeyboardKeyDown(KeyboardKey.Left))
+        {
+            x -= distance;
+        }
+
+        if (Input.IsKeyboardKeyDown(KeyboardKey.Right))
+        {
+            x += distance;
+        }
+
+        // Leave room for the outer circles at both window edges.
+        if (x < 40)
+        {
+            x = 40;
+        }
+
+        if (x > 360)
+        {
+            x = 360;
+        }
+    }
+
     public void DrawCloud()
     {
         Draw.FillColor = Color.White;
