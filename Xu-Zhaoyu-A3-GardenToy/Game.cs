@@ -2,6 +2,7 @@
 
 public class Game
 {
+    Cloud cloud = new Cloud();
     Meadow meadow = new Meadow();
     Flower left = new Flower(80);
     Flower middle = new Flower(200);
@@ -21,5 +22,6 @@ public class Game
         left.DrawFlower();
         middle.DrawFlower();
         right.DrawFlower();
+        cloud.DrawCloud();
     }
 }
